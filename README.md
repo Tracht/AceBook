@@ -1,6 +1,6 @@
 # Acebook 
 
-[![Build Status](https://travis-ci.com/edmond-b/acebook-NO-de-Problem.svg?branch=master)](https://travis-ci.com/Tracht/AceBook)
+[![Build Status](https://travis-ci.org/Tracht/AceBook.svg?branch=master)](https://travis-ci.org/Tracht/AceBook)
 
 Acebook the best thing since facebook! This is a re-creation of classic facebook in Node.js using Express and React. The application is structured using modern RESTful route design with asynchronous fetch API calls from a frontend react controller to a backend express server which returns data using JSON.
 
