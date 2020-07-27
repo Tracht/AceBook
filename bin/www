@@ -17,17 +17,34 @@ var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
 /**
- * Connect to MongoDB
+ * Setup to MongoDB
  **/
 
- var mongoDbUrl = process.env.MONGODB_URL || 'mongodb://localhost/acebook';
- mongoose.connect(mongoDbUrl, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true
- });
+ if ( process.env.MONGODB_URI ) {
+  mongoose.connect(process.env.MONGOLAB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+} else {
+  mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/acebook', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+}
 
- var db = mongoose.connection;
- db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connection.on('connected', () => {
+  console.log('Mongoose is connected!');
+});
+
+//  Old setup connection to MongoDB 
+//  var mongoDbUrl = process.env.MONGODB_URL || 'mongodb://localhost/acebook';
+//  mongoose.connect(mongoDbUrl, {
+//    useNewUrlParser: true,
+//    useUnifiedTopology: true
+//  });
+
+//  var db = mongoose.connection;
+//  db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 /**
  * Create HTTP server.

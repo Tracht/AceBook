@@ -4,6 +4,7 @@
   "description": "Template for the AceBook project",
   "license": "CC BY-NC-SA",
   "private": true,
+
   "scripts": {
     "lint": "",
     "start": "nodemon ./bin/www",
@@ -13,6 +14,7 @@
     "test:unit": "jest",
     "test:integration": "cypress run"
   },
+
   "engines": {
     "node": ">=12.14.1"
   },
